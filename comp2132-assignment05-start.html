@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>COMP 2132 Assignment 5 Starting File</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>COMP 2132 Assignment 5 Starting File</h1>
+        </header>
+        <main> 
+            <p>Please fill out the form. All fields are required</p>               
+            
+            <form action="thank-you.html">
+               
+                <input type="text" name="firstname" id="firstname" placeholder="First Name">
+                <input type="text" name="lastname"  id="lastname" placeholder="Last Name">
+                <input type="text" name="studentnumber" id="studentnumber" placeholder="Student Number">
+
+                <select name="courses" id="courses">
+                    <option disabled="disabled" selected="selected">Choose your course:</option>
+                    <option value="comp1850">COMP 1850</option>
+                    <option value="comp1911">COMP 1911</option>
+                    <option value="comp1950">COMP 1950</option>                                        
+                    <option value="comp2132">COMP 2132</option>                                        
+                </select>
+
+                <input type="submit" value="Submit">
+            </form>
+            <div id="error-messages"></div>
+        </main>    
+        <footer>
+            COMP 2132
+        </footer>
+    </div>
+
+    <script src="scripts/comp2132-assignment05-start.js"></script>
+
+</body>
+</html>

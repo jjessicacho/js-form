@@ -1,2 +1,3 @@
 # js-form
-Writing a form processing JavaScript
+I wrote a form processing JavaScript so that it will run a validation function upon a form submit event.
+
