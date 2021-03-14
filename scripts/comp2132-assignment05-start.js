@@ -37,7 +37,7 @@ function validateForm( event ){
 
     // 2. perform data validation
     // if errors are found, change the flag 
-    // first name
+    // FIRST NAME
     if(firstName.value.trim().length === 0){
         // if firstname was left empty
         errorMessages.style.display = "block";
@@ -53,7 +53,7 @@ function validateForm( event ){
         firstName.style.border = "solid 1px black";
     }
 
-    // last name
+    // LAST NAME
     if(lastName.value.trim().length === 0){
         // if lastname was left empty
         errorMessages.display = "block";
@@ -69,7 +69,7 @@ function validateForm( event ){
         lastName.style.border = "solid 1px black";
     }
 
-    // student number
+    // STUDENT NUMBER
     if(studentNumber.value.trim().length === 0){
         // if student number was left empty
         errorMessages.display = "block";
@@ -85,26 +85,34 @@ function validateForm( event ){
         studentNumber.style.border = "solid 1px black";
     }
 
-    // student number in regular expression
-    const studentNumberRegEx = /^a00[0-9]{6}$/i;
+    // REGULAR EXPRESSION
+    function testStudentNumber( regex, stringToTest ){
+        let regexObject = RegExp( regex );
 
-    if (studentNumber.value !== studentNumberRegEx){
-        errorMessages.display = "block";
+        if ( !regexObject.test( stringToTest )){
+            errorMessages.display = "block";
+        
+            // if student number is not correct
+            errorMessages.innerHTML += `<p>Please provide a valid student number (A00nnnnnn)</p>`;
+        
+            // highlight the area that needs user attention
+            studentNumber.style.border = "solid 2px red";
+        
+            // a validation error has occur by changing the 'flag' value
+            formDataErrorsDetected = true;
+    
+        }else{
+            // border style is back to normal 
+            studentNumber.style.border = "solid 1px black";
+        }    
 
-        // if student number is not correct
-        errorMessages.innerHTML += `<p>Please provide a valid student number (A00nnnnnn)</p>`;
-
-        // highlight the area that needs user attention
-        studentNumber.style.border = "solid 2px red";
-
-        // a validation error has occur by changing the 'flag' value
-        formDataErrorsDetected = true;
-    }else{
-        // border style is back to normal 
-        studentNumber.style.border = "solid 1px black";
     }
 
-    // select courses
+    const studentNumberRegEx = /^a00[0-9]{6}$/i;
+    testStudentNumber(studentNumberRegEx, studentNumber.value);
+
+   
+    // COURSES
     if(courses.value === "Choose your course:"){
         // if course was left empty
         errorMessages.display = "block";
